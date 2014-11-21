@@ -10,7 +10,7 @@ CC		= gcc
 CFLAGS	= -O0 -Wall -g
 UNAME := $(shell uname -s)
 
-ALL =   gradient vector
+ALL =  main
 
 all:  $(ALL)
 
