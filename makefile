@@ -6,17 +6,15 @@
 # "make clean" to remove executables
 #
 
-CC		= gcc
-CFLAGS	= -O0 -Wall -g
+CC      = mpicc
+CFLAGS  = -O0 -Wall -g
 UNAME := $(shell uname -s)
 
-ALL =  main
+ALL =   main_mp main_mpi one
 
 all:  $(ALL)
 
-%: %.c
-	$(CC) -o $@ $(CFLAGS) $< $(LFLAGS)
+%: %.c ; $(CC) -o $@ $(CFLAGS) $< $(LFLAGS)
 
-LFLAGS = -lm -lGLEW -lGL -lGLU -lglut
-clean:
-	-rm $(ALL)
+LFLAGS = -lm -lGLEW -lGL -lGLU -lglut -fopenmp
+clean: ; -rm $(ALL)
