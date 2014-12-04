@@ -23,6 +23,7 @@
 
 #define PRAGMA
 //#define PRAGMA2
+//#define MR
 #define PRAGMA_THREADS 5
 
 typedef struct {
@@ -268,6 +269,7 @@ int main(int argc, char ** argv) {
     MPI_Comm_rank(MPI_COMM_WORLD, &id);
 
     // Init GLUT
+    #ifndef MR
     glutInit(&argc, argv);
     glutInitWindowSize(TEX_SIZE, TEX_SIZE);
     glutInitDisplayMode(GLUT_DOUBLE|GLUT_RGB);
@@ -279,6 +281,7 @@ int main(int argc, char ** argv) {
     glutDisplayFunc(display);
     glutKeyboardFunc(handle_keyboard);
     glutMainLoop();
+    #endif
 
     // MPI end
     MPI_Finalize();
