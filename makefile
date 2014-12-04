@@ -10,7 +10,7 @@ CC      = mpicc
 CFLAGS  = -O0 -Wall -g
 UNAME := $(shell uname -s)
 
-ALL =   main_mp main_mpi one
+ALL =   main_mpi one
 
 all:  $(ALL)
 
